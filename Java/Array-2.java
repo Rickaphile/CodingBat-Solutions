@@ -235,26 +235,16 @@ public boolean modThree(int[] nums)
 // 
 
 // Given an array of ints, return true if the value 3 appears in the array exactly 3 times, and no 3's are next to each other. 
-public boolean haveThree(int[] nums)
-{
-	int count = 0;
-  boolean isPerv3 = false;
-  for(int i = 0 ; i < nums.length && count <= 3; i++)
-  {
-  	if(nums[i] == 3)
-  	{
-  		if(isPerv3)
-  			return false;
-  		else
-  		{
-  			count++;
-  			isPerv3 = true;
-			}
-  	}
-  	else
-  		isPerv3 = false;
+public boolean haveThree(int[] nums) {
+  int check = 0;
+  for (int i = 0; i < nums.length; i++) {
+    if (nums[i] == 3) {
+        check += 1;
+        i++;
+    }
   }
-  return (count == 3);
+  
+  return (check == 3);
 }
 
 // Given an array of ints, return true if every 2 that appears in the array is next to another 2.
